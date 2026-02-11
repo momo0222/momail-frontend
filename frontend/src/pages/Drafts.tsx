@@ -5,7 +5,6 @@ import { toast } from 'sonner';
 
 import { draftsApi } from '../api/drafts';
 import type { Draft } from '../types';
-import { Card, CardContent } from '../components/ui/Card';
 
 export const Drafts = () => {
   const navigate = useNavigate();

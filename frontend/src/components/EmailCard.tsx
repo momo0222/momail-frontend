@@ -1,5 +1,4 @@
 import type { EmailThread } from "../types";
-import { Card, CardContent, CardHeader } from "./ui/Card";
 import { Badge } from "./ui/Badge";
 import { MessageSquare } from "lucide-react";
 
