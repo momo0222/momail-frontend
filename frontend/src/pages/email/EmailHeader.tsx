@@ -1,6 +1,6 @@
 import { ArrowLeft } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import type { Email, EmailThread } from '../../types';
+import type { Email } from '../../types';
 
 export const EmailHeader = ({ email }: { email: Email }) => {
   const navigate = useNavigate();

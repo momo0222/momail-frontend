@@ -3,7 +3,7 @@ import { useQuery, useMutation } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import { toast } from 'sonner';
 
-import type { Email, Action } from '../types';
+import type { Action } from '../types';
 import { emailsApi } from '../api/email';
 import { apiClient } from '../api/client';
 import { actionsApi } from '../api/actions';
@@ -14,6 +14,8 @@ import { EmailActions } from './email/EmailActions';
 import { SuggestedReply } from './email/SuggestedReply';
 import { EmailSkeleton } from './email/EmailSkeleton';
 import { AIReplyAssistant } from '../components/email/AIReplyAssistant';
+
+type Tone = "professional" | "casual" | "friendly" | "brief";
 
 export const EmailDetail = () => {
   const { emailId } = useParams<{ emailId: string }>();
@@ -112,7 +114,7 @@ export const EmailDetail = () => {
   const generateReplyMutation = useMutation({
   mutationFn: (payload: {
     emailId: string;
-    tone: string;
+    tone: Tone | undefined;
     instructions?: string;
   }) =>
     actionsApi.generateReply(payload.emailId, {
